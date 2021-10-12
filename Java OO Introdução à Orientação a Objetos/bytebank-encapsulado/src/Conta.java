@@ -4,8 +4,10 @@ public class Conta {
 	private int agencia;
 	private int numero;
 	private Cliente titular;
+	private static int total; // static é um atributo DA CLASSE e nao do objeto
 
 	public Conta(int agencia, int numero) { // CONSTRUTOR: rotina de inicialização
+		Conta.total++;
 		this.agencia = agencia;
 		this.numero = numero;
 	}
@@ -59,4 +61,9 @@ public class Conta {
 	public void setTitular(Cliente titular) {
 		this.titular = titular;
 	}
+
+	public static int getTotal() { // metodo DA CLASSE, dentro do conceito STATIC não existe THIS nem atributo de instancia, so acessa atributos estaticos(statics)
+		return Conta.total;
+	}
+	
 }
